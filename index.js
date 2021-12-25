@@ -14,6 +14,7 @@ bot.on('ready', () => {
     bot.generateInvite(["ADMINISTRATOR"]).then(link => { 
         console.log(link);
     });
+    
 // ?устанавливаем статус
     bot.user.setPresence({
         status: 'inactive',
