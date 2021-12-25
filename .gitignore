@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Private info
-botconfig.json
+botconfig.json*
 
 # Runtime data
 pids
