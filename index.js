@@ -1,29 +1,41 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client();
+require("dotenv").config();
+const { Client, Intents } = require('discord.js');
+const bot = new Client({
+    intents: [
+        Intents.FLAGS.GUILDS,
+        Intents.FLAGS.GUILD_MESSAGES
+    ],
+    presence: {
+        status: 'inactive',
+        activities: [{
+            type: 'STREAMING',
+            name: '-&Help to list of commands',
+            url: 'https://www.twitch.tv/spiritofthehawk_sothe'
+        }],
+    },
+});
 
 // !подключаем файл конфигурации
-let config = require('./botconfig.json'); 
+const config = require('./botconfig.json'); 
 
 // !получаем токен и префикс
-let token = config.token; 
-let prefix = config.prefix;
+const token = config.token; 
+const prefix = config.prefix;
 
 // ?создаём ссылку-приглашение для бота
 bot.on('ready', () => { 
     console.log(`Запустился бот ${bot.user.username}`);
-    bot.generateInvite(["ADMINISTRATOR"]).then(link => { 
-        console.log(link);
+    //bot.generateInvite(["ADMINISTRATOR"]).then(link => { 
+    //    console.log(link);
+    //})
     });
-    
-// ?устанавливаем статус
-    bot.user.setPresence({
-        status: 'inactive',
-        activity: {
-            type: 'STREAMING',
-            name: '-&Help to list of commands',
-            url: 'https://www.twitch.tv/spiritofthehawk_sothe'
-        },
-    });
+
+bot.on("messageCreate", msg => {
+    if (msg.content.startsWith(prefix)) {
+        if (msg.content.substring(1) === "ping") {
+            msg.reply("Pong!!!!");
+        }
+    }
 });
 
 // ?Простые сообщения
