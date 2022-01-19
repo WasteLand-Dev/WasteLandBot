@@ -47,7 +47,7 @@ bot.on('message', msg => {
         msg.reply('VK: https://vk.com/thewastelandrp');
     }
     if (msg.content === prefix + 'Site') {
-        msg.reply('Site: http://www.creepshield.cf');
+        msg.reply('Site: https://www.creepshield.cf');
     }
     if (msg.content === prefix + 'Discord') {
         msg.reply('https://discord.gg/UBaauaN');
@@ -56,7 +56,7 @@ bot.on('message', msg => {
         msg.reply('IP: thewasteland.cf / origin.thewasteland.cf / craft.thewasteland.cf / play.thewasteland.cf');
     }
     if (msg.content === prefix + 'Author') {
-        msg.reply('Author: mrKarimG');
+        msg.reply('Author: SpiritOfTheHawk');
     }
     if (msg.content === prefix + 'Ping') {
         msg.reply('Pong!');
