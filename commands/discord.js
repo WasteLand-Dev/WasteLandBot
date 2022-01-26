@@ -2,11 +2,11 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("ping")
-        .setDescription("Pong!"),
+        .setName("discord")
+        .setDescription("Generate invite"),
     async execute(interaction) {
         interaction.reply({
-            content: "Pong!",
+            content: "Your invite: https://discord.gg/UBaauaN",
             emphemeral: true
         });
     }

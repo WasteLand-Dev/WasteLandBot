@@ -2,11 +2,11 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("ping")
-        .setDescription("Pong!"),
+        .setName("vk")
+        .setDescription("Our vk page"),
     async execute(interaction) {
         interaction.reply({
-            content: "Pong!",
+            content: "VK: https://vk.com/thewastelandrp",
             emphemeral: true
         });
     }

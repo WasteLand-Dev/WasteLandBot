@@ -2,11 +2,11 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("ping")
-        .setDescription("Pong!"),
+        .setName("author")
+        .setDescription("Who create this bot?"),
     async execute(interaction) {
         interaction.reply({
-            content: "Pong!",
+            content: "Author: SpiritOfTheHawk",
             emphemeral: true
         });
     }
