@@ -1,5 +1,8 @@
 require("dotenv").config();
-const { Client, Intents } = require('discord.js');
+const fs = require("fs");
+const { REST } = require("@discordjs/rest");
+const { Routes } = require("discord-api-types/v9")
+const { Client, Intents, Collection, Interaction } = require('discord.js');
 const bot = new Client({
     intents: [
         Intents.FLAGS.GUILDS,
@@ -21,20 +24,69 @@ const config = require('./botconfig.json');
 // !получаем токен и префикс
 const token = config.token; 
 const prefix = config.prefix;
+const GUILD_ID = config.GUILD_ID;
+
+// !slash commands
+const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
+
+const commands = [];
+
+bot.commands = new Collection();
+
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`);
+    commands.push(command.data.toJSON());
+    bot.commands.set(command.data.name, command);
+}
 
 // ?создаём ссылку-приглашение для бота
 bot.on('ready', () => { 
     console.log(`Запустился бот ${bot.user.username}`);
+
+    const CLIENT_ID = bot.user.id;
+
+    const rest = new REST({
+        version: "9"
+    }).setToken(token);
+
+    (async () => {
+        try {
+            if (process.env.ENV === "production") {
+                await rest.put(Routes.applicationCommands(CLIENT_ID), {
+                    body: commands
+                });
+                console.log("Successfully registered commands globally.");
+            } else {
+                await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
+                    body: commands
+                });
+                console.log("Successfully registered commands locally.");
+            }
+        } catch (err) {
+            if (err) console.error(err);
+        }
+    })();
     //bot.generateInvite(["ADMINISTRATOR"]).then(link => { 
     //    console.log(link);
     //})
-    });
+});
 
-bot.on("messageCreate", msg => {
-    if (msg.content.startsWith(prefix)) {
-        if (msg.content.substring(1) === "ping") {
-            msg.reply("Pong!!!!");
-        }
+bot.on("interactionCreate", async Interaction => {
+    if (!Interaction.isCommand()) return;
+
+    const command = bot.commands.get(Interaction.commandName);
+
+    if (!command) return;
+
+    try {
+        await command.execute(Interaction);
+    } catch(err) {
+        if (err) console.error(err);
+
+        await Interaction.reply({
+            content: "An error occured while executing that command.",
+            ephemeral: true
+        });
     }
 });
 
