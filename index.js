@@ -12,7 +12,7 @@ const bot = new Client({
         status: 'inactive',
         activities: [{
             type: 'STREAMING',
-            name: '-&Help to list of commands',
+            name: 'support@creepshield.cf',
             url: 'https://www.twitch.tv/spiritofthehawk_sothe'
         }],
     },
