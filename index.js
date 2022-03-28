@@ -12,7 +12,7 @@ const bot = new Client({
         status: 'inactive',
         activities: [{
             type: 'STREAMING',
-            name: 'support@creepshield.cf',
+            name: 'support@wlorigin.cf',
             url: 'https://www.twitch.tv/spiritofthehawk_sothe'
         }],
     },
@@ -99,7 +99,7 @@ bot.on('message', msg => {
         msg.reply('VK: https://vk.com/thewastelandrp');
     }
     if (msg.content === prefix + 'Site') {
-        msg.reply('Site: https://www.creepshield.cf');
+        msg.reply('Site: https://www.wlorigin.cf');
     }
     if (msg.content === prefix + 'Discord') {
         msg.reply('https://discord.gg/UBaauaN');

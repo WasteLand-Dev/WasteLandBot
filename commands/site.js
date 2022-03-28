@@ -6,7 +6,7 @@ module.exports = {
         .setDescription("Our webpage"),
     async execute(interaction) {
         interaction.reply({
-            content: "Site: https://www.creepshield.cf/",
+            content: "Site: https://www.wlorigin.cf/",
             emphemeral: true
         });
     }
