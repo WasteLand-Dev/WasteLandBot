@@ -13,7 +13,7 @@ const bot = new Client({
         activities: [{
             type: 'STREAMING',
             name: 'support@wlorigin.cf',
-            url: 'https://www.twitch.tv/spiritofthehawk_sothe'
+            url: 'https://www.twitch.tv/spiritothawk'
         }],
     },
 });

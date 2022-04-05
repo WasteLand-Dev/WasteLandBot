@@ -1,4 +1,5 @@
 {
     "token":"your token :)",
-    "prefix":"&"
+    "prefix":"&",
+    "GUILD_ID":"your guild id :)"
 }
