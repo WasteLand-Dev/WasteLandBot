@@ -1,5 +1,6 @@
 {
     "token":"your token :)",
     "prefix":"&",
-    "GUILD_ID":"your guild id :)"
+    "GUILD_ID":"your guild id :)",
+    "GUILD_ID2":"your second guild id :)"
 }

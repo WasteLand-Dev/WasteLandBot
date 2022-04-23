@@ -2,7 +2,7 @@ require("dotenv").config();
 const fs = require("fs");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9")
-const { Client, Intents, Collection, Interaction } = require('discord.js');
+const { Client, Intents, Collection, Interaction, Guild } = require('discord.js');
 const bot = new Client({
     intents: [
         Intents.FLAGS.GUILDS,
@@ -23,8 +23,9 @@ const config = require('./botconfig.json');
 
 // !получаем токен и префикс
 const token = config.token; 
-const prefix = config.prefix;
+/* const prefix = config.prefix; */
 const GUILD_ID = config.GUILD_ID;
+const GUILD_ID2 = config.GUILD_ID2;
 
 // !slash commands
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
@@ -60,15 +61,20 @@ bot.on('ready', () => {
                 await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
                     body: commands
                 });
-                console.log("Successfully registered commands locally.");
+                console.log("Successfully registered commands locally on WasteLand.");
+                await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID2), {
+                    body: commands
+                });
+                console.log("Successfully registered commands locally on SpiritOTHawk projects.");
             }
+            console.log("Регистрация команд завершена.")
         } catch (err) {
             if (err) console.error(err);
         }
     })();
-    //bot.generateInvite(["ADMINISTRATOR"]).then(link => { 
-    //    console.log(link);
-    //})
+/*     bot.generateInvite(["ADMINISTRATOR"]).then(link => { 
+        console.log(link);
+    }); */
 });
 
 bot.on("interactionCreate", async Interaction => {
@@ -91,7 +97,7 @@ bot.on("interactionCreate", async Interaction => {
 });
 
 // ?Простые сообщения
-bot.on('message', msg => {
+/* bot.on('message', msg => {
     if (msg.content === prefix + 'Help') {
         msg.reply('`-&Help -&VK -&Site -&Discord -&IP -&Author -&Ping`');
     }
@@ -113,5 +119,5 @@ bot.on('message', msg => {
     if (msg.content === prefix + 'Ping') {
         msg.reply('Pong!');
     }
-});
+}); */
 bot.login(token);
