@@ -72,9 +72,9 @@ bot.on('ready', () => {
             if (err) console.error(err);
         }
     })();
-/*     bot.generateInvite(["ADMINISTRATOR"]).then(link => { 
-        console.log(link);
-    }); */
+
+    const link = bot.generateInvite({ scopes: ['bot'], permissions: ["ADMINISTRATOR"] });
+    console.log(link);
 });
 
 bot.on("interactionCreate", async Interaction => {
