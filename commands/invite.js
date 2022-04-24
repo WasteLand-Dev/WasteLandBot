@@ -12,5 +12,6 @@ module.exports = {
             content: ("||" + link + "|| \n`-Your link. By default, the commands do not work on your server, to activate them write`" + "*` Spirit Of The Hawk#9193`*"),
             emphemeral: true
         })
+        console.warn("Bot invitation sent");
     }
 };

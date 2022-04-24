@@ -9,5 +9,6 @@ module.exports = {
             content: "support@wlorigin.cf",
             emphemeral: true
         });
+        console.log("Email address sent");
     }
 };

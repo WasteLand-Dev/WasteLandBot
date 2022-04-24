@@ -9,5 +9,6 @@ module.exports = {
             content: '`-/help -/vk -/site -/discord -/ip -/author -/ping`',
             emphemeral: true
         });
+        console.log("Command list sent");
     }
 };

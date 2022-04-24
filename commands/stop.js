@@ -12,6 +12,7 @@ module.exports = {
                 content: "You have no right!",
                 emphemeral: true
             });
+            console.warn("Unauthorized access blocked (server shutdown command)");
         }
     }
 };

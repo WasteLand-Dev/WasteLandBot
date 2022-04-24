@@ -9,5 +9,6 @@ module.exports = {
             content: "Your invite: https://discord.gg/UBaauaN",
             emphemeral: true
         });
+        console.log("Discord invitation link sent");
     }
 };

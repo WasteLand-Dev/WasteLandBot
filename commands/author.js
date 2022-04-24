@@ -9,5 +9,6 @@ module.exports = {
             content: "Author: SpiritOfTheHawk",
             emphemeral: true
         });
+        console.log("Command author executed");
     }
 };

@@ -9,5 +9,6 @@ module.exports = {
             content: `Server name: ${interaction.guild.name}\nTotal members: ${interaction.guild.memberCount}`,
             emphemeral: true
         });
+        console.log("Command server info executed");
     }
 };

@@ -9,5 +9,6 @@ module.exports = {
             content: "Site: https://www.wlorigin.cf/",
             emphemeral: true
         });
+        console.log("Website libk sent");
     }
 };

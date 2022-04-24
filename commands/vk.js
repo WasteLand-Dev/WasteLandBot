@@ -9,5 +9,6 @@ module.exports = {
             content: "VK: https://vk.com/thewastelandrp",
             emphemeral: true
         });
+        console.log("Link to the community in VK sent");
     }
 };
