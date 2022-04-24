@@ -2,7 +2,7 @@ require("dotenv").config();
 const fs = require("fs");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9")
-const { Client, Intents, Collection, Interaction, Guild } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 const bot = new Client({
     intents: [
         Intents.FLAGS.GUILDS,
