@@ -7,4 +7,5 @@ We have completely switched to slash commands.
 
 To invite this bot to your server, run the /invite command in our discord ( https://discord.gg/UBaauaN )
 ![image](https://user-images.githubusercontent.com/76490476/165565812-e8b0ee52-630e-4aa2-bf93-3b2e91701bde.png)
+
 By default, the commands do not work on your server, to activate them write Spirit Of The Hawk#9193
