@@ -19,11 +19,15 @@ module.exports = {
                 .setRequired(true)
         ),
 	async execute(interaction) {
-        var input = interaction.options.getString("message");
+/*        var input = interaction.options.getString("message");
         var key = interaction.options.getString("encryption_key");
         var ciphertext = CryptoJS.AES.encrypt(input, key).toString();
 		interaction.reply({
 			content: ciphertext,
+			ephemeral: true,
+		}); */
+		interaction.reply({
+			content: "This command is temporarily disabled!",
 			ephemeral: true,
 		});
 		console.log(color.cyanBright("Command encrypt executed"));

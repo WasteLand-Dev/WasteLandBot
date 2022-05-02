@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Spirit Of The Hawk",
   "license": "ISC",
+  "scripts": {
+    "start": "SET Node_ENV=development& node index.js"
+  },
   "type": "commonjs",
   "dependencies": {
     "@discordjs/builders": "^0.13.0",
