@@ -4,6 +4,7 @@ const fs = require("fs");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9")
 const { Client, Intents, Collection } = require('discord.js');
+var CryptoJS = require("crypto-js");
 const bot = new Client({
     intents: [
         Intents.FLAGS.GUILDS,
@@ -20,10 +21,13 @@ const bot = new Client({
 });
 
 // !подключаем файл конфигурации
-const config = require('./botconfig.json'); 
+const config = require('./encrypt/config/botconfig.json'); 
 
 // !получаем токен и префикс
-const token = config.token; 
+const encryptedtoken = config.token;
+const key = config.key;
+var bytes = CryptoJS.AES.decrypt(encryptedtoken, key);
+var token = bytes.toString(CryptoJS.enc.Utf8);
 /* const prefix = config.prefix; */
 const GUILD_ID = config.GUILD_ID;
 const GUILD_ID2 = config.GUILD_ID2;

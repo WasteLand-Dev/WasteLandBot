@@ -1,0 +1,2 @@
+encrypt.js
+pause
