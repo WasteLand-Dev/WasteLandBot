@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,6 +10,6 @@ module.exports = {
             content: "Pong!",
             emphemeral: true
         });
-        console.log("Ping test completed");
+        console.log(color.cyanBright("Ping test completed"));
     }
 };

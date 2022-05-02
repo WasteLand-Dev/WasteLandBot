@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,6 +10,6 @@ module.exports = {
             content: "VK: https://vk.com/thewastelandrp",
             emphemeral: true
         });
-        console.log("Link to the community in VK sent");
+        console.log(color.cyanBright("Link to the community in VK sent"));
     }
 };

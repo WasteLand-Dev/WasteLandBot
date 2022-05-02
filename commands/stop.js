@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -12,7 +13,7 @@ module.exports = {
                 content: "You have no right!",
                 emphemeral: true
             });
-            console.warn("Unauthorized access blocked (server shutdown command)");
+            console.warn(color.cyanBright("Unauthorized access blocked (server shutdown command)"));
         }
     }
 };

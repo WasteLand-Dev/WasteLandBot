@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,6 +10,6 @@ module.exports = {
             content: `Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`,
             emphemeral: true
         });
-        console.log("Command user info executed");
+        console.log(color.cyanBright("Command user info executed"));
     }
 };

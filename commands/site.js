@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,6 +10,6 @@ module.exports = {
             content: "Site: https://www.wlorigin.cf/",
             emphemeral: true
         });
-        console.log("Website link sent");
+        console.log(color.cyanBright("Website link sent"));
     }
 };

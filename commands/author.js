@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,6 +10,6 @@ module.exports = {
             content: "Author: SpiritOfTheHawk",
             emphemeral: true
         });
-        console.log("Command author executed");
+        console.log(color.cyanBright("Command author executed"));
     }
 };

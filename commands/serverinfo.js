@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,6 +10,6 @@ module.exports = {
             content: `Server name: ${interaction.guild.name}\nTotal members: ${interaction.guild.memberCount}`,
             emphemeral: true
         });
-        console.log("Command server info executed");
+        console.log(color.cyanBright("Command server info executed"));
     }
 };

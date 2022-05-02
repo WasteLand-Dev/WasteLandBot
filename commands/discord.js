@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,6 +10,6 @@ module.exports = {
             content: "Your invite: https://discord.gg/UBaauaN",
             emphemeral: true
         });
-        console.log("Discord invitation link sent");
+        console.log(color.cyanBright("Discord invitation link sent"));
     }
 };

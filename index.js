@@ -1,4 +1,5 @@
 require("dotenv").config();
+var color = require("cli-color");
 const fs = require("fs");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9")
@@ -42,7 +43,7 @@ for (const file of commandFiles) {
 
 // ?создаём ссылку-приглашение для бота
 bot.on('ready', () => { 
-    console.log(`Запустился бот ${bot.user.username}`);
+    console.log(color.cyan(`Запустился бот ${bot.user.username}`));
 
     const CLIENT_ID = bot.user.id;
 
@@ -56,25 +57,25 @@ bot.on('ready', () => {
                 await rest.put(Routes.applicationCommands(CLIENT_ID), {
                     body: commands
                 });
-                console.log("Successfully registered commands globally.");
+                console.log(color.yellowBright("Successfully registered commands globally."));
             } else {
                 await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
                     body: commands
                 });
-                console.log("Successfully registered commands locally on WasteLand.");
+                console.log(color.yellowBright("Successfully registered commands locally on WasteLand."));
                 await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID2), {
                     body: commands
                 });
-                console.log("Successfully registered commands locally on SpiritOTHawk projects.");
+                console.log(color.yellowBright("Successfully registered commands locally on SpiritOTHawk projects."));
             }
-            console.log("Регистрация команд завершена.")
+            console.log(color.cyan("Регистрация команд завершена."));
         } catch (err) {
             if (err) console.error(err);
         }
     })();
 
     const link = bot.generateInvite({ scopes: ['bot'], permissions: ["ADMINISTRATOR"] });
-    console.log(link);
+    console.log(color.yellow(link));
 });
 
 bot.on("interactionCreate", async Interaction => {

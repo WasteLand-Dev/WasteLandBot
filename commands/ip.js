@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,6 +10,6 @@ module.exports = {
             content: "**IP**: thewasteland.cf / origin.thewasteland.cf / craft.thewasteland.cf / play.thewasteland.cf / craft.wlorigin.cf",
             emphemeral: true
         })
-        console.log("Command ip executed");
+        console.log(color.cyanBright("Command ip executed"));
     }
 };

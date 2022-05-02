@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,6 +10,6 @@ module.exports = {
             content: '`-/help -/vk -/site -/discord -/ip -/author -/ping`',
             emphemeral: true
         });
-        console.log("Command list sent");
+        console.log(color.cyanBright("Command list sent"));
     }
 };

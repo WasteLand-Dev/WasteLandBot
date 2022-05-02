@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,6 +10,6 @@ module.exports = {
             content: "support@wlorigin.cf",
             emphemeral: true
         });
-        console.log("Email address sent");
+        console.log(color.cyanBright("Email address sent"));
     }
 };

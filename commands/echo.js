@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+var color = require("cli-color");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -15,6 +16,6 @@ module.exports = {
 			content: interaction.options.getString("message"),
 			ephemeral: true,
 		});
-		console.log("Command echo executed");
+		console.log(color.cyanBright("Command echo executed"));
 	},
 };
