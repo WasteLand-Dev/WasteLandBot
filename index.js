@@ -19,16 +19,16 @@ const bot = new Client({
     },
 });
 
-// !подключаем файл конфигурации
+//! Подключаем файл конфигурации
 const config = require('./botconfig.json'); 
 
-// !получаем токен и префикс
+//! Загружаем конфигурацию
 const token = config.token;
 /* const prefix = config.prefix; */
 const GUILD_ID = config.GUILD_ID;
 const GUILD_ID2 = config.GUILD_ID2;
 
-// !slash commands
+//! Создаём слэш-команды
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 
 const commands = [];
@@ -41,7 +41,7 @@ for (const file of commandFiles) {
     bot.commands.set(command.data.name, command);
 }
 
-// ?создаём ссылку-приглашение для бота
+//! Регистрируем команды
 bot.on('ready', () => { 
     console.log(color.cyan(`Запустился бот ${bot.user.username}`));
 
@@ -70,12 +70,13 @@ bot.on('ready', () => {
             }
             console.log(color.cyan("Регистрация команд завершена."));
         } catch (err) {
-            if (err) console.error(err);
+            if (err) console.error(color.red(err));
         }
     })();
-
+    // ?Создаём ссылку-приглашение для бота
     const link = bot.generateInvite({ scopes: ['bot'], permissions: ["ADMINISTRATOR"] });
     console.log(color.yellow(link));
+    module.exports = link;
 });
 
 bot.on("interactionCreate", async Interaction => {
@@ -88,7 +89,7 @@ bot.on("interactionCreate", async Interaction => {
     try {
         await command.execute(Interaction);
     } catch(err) {
-        if (err) console.error(err);
+        if (err) console.error(color.red(err));
 
         await Interaction.reply({
             content: "An error occured while executing that command.",
@@ -97,28 +98,4 @@ bot.on("interactionCreate", async Interaction => {
     }
 });
 
-// ?Простые сообщения
-/* bot.on('message', msg => {
-    if (msg.content === prefix + 'Help') {
-        msg.reply('`-&Help -&VK -&Site -&Discord -&IP -&Author -&Ping`');
-    }
-    if (msg.content === prefix + 'VK') {
-        msg.reply('VK: https://vk.com/thewastelandrp');
-    }
-    if (msg.content === prefix + 'Site') {
-        msg.reply('Site: https://www.wlorigin.cf');
-    }
-    if (msg.content === prefix + 'Discord') {
-        msg.reply('https://discord.gg/UBaauaN');
-    }
-    if (msg.content === prefix + 'IP') {
-        msg.reply('IP: thewasteland.cf / origin.thewasteland.cf / craft.thewasteland.cf / play.thewasteland.cf');
-    }
-    if (msg.content === prefix + 'Author') {
-        msg.reply('Author: SpiritOfTheHawk');
-    }
-    if (msg.content === prefix + 'Ping') {
-        msg.reply('Pong!');
-    }
-}); */
 bot.login(token);

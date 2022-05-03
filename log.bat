@@ -1,2 +1,2 @@
-nodemon --watch --delay 5 index.js
+node index.js
 pause
