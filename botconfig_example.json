@@ -1,8 +1,6 @@
 {
-    "token":"encrypted token",
-    "originaltoken":"your token :)",
+    "token":"your token :)",
     "prefix":"&",
-    "key":"Your key",
     "GUILD_ID":"your guild id :)",
     "GUILD_ID2":"your second guild id :)"
 }
