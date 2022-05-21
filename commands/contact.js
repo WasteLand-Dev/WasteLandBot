@@ -3,13 +3,13 @@ var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("src")
-        .setDescription("View a github page"),
+        .setName("contact")
+        .setDescription("How to chat with us"),
     async execute(interaction) {
         interaction.reply({
-            content: "Bot: https://dev.wlorigin.cf/ \nSite: https://wlorigin.cf/contact.html",
+            content: "https://wlorigin.cf/contact.html",
             emphemeral: true
         });
-        console.log(color.cyanBright("Command src executed"));
+        console.log(color.cyanBright("Information about communication with us was sent"));
     }
 };
