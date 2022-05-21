@@ -3,7 +3,7 @@ var color = require("cli-color");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("Telegram")
+        .setName("telegram")
         .setDescription("Generate invite"),
     async execute(interaction) {
         interaction.reply({
