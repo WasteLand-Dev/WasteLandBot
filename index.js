@@ -1,6 +1,7 @@
 require("dotenv").config();
 var color = require("cli-color");
 const fs = require("fs");
+const path = require("path");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9")
 const { Client, Intents, Collection } = require('discord.js');
@@ -20,23 +21,23 @@ const bot = new Client({
 });
 
 //! Подключаем файл конфигурации
-const config = require('./botconfig.json'); 
+const config = require(path.join(__dirname, 'botconfig.json')); 
 
 //! Загружаем конфигурацию
 const token = config.token;
-/* const prefix = config.prefix; */
 const GUILD_ID = config.GUILD_ID;
 const GUILD_ID2 = config.GUILD_ID2;
 
 //! Создаём слэш-команды
-const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
+const dir = path.join(__dirname, 'commands');
+const commandFiles = fs.readdirSync(dir).filter(file => file.endsWith(".js"));
 
 const commands = [];
 
 bot.commands = new Collection();
 
 for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
+    const command = require(path.join(dir, `${file}`));
     commands.push(command.data.toJSON());
     bot.commands.set(command.data.name, command);
 }
