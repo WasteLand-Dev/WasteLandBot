@@ -77,7 +77,6 @@ bot.on('ready', () => {
     // ?Создаём ссылку-приглашение для бота
     const link = bot.generateInvite({ scopes: ['bot'], permissions: ["ADMINISTRATOR"] });
     console.log(color.yellow(link));
-    module.exports = link;
 });
 
 bot.on("interactionCreate", async Interaction => {
