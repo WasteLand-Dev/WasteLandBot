@@ -36,11 +36,15 @@ const commands = [];
 
 bot.commands = new Collection();
 
-for (const file of commandFiles) {
-    const command = require(path.join(dir, `${file}`));
-    commands.push(command.data.toJSON());
-    bot.commands.set(command.data.name, command);
-}
+async function setCommands() {
+    for await (const file of commandFiles) {
+        const command = require(path.join(dir, `${file}`));
+        commands.push(command.data.toJSON());
+        bot.commands.set(command.data.name, command);
+    }
+};
+
+setCommands();
 
 //! Регистрируем команды
 bot.on('ready', () => { 
@@ -75,8 +79,11 @@ bot.on('ready', () => {
         }
     })();
     // ?Создаём ссылку-приглашение для бота
+    async function createLink() {
     const link = bot.generateInvite({ scopes: ['bot'], permissions: ["ADMINISTRATOR"] });
     console.log(color.yellow(link));
+    };
+    createLink();
 });
 
 bot.on("interactionCreate", async Interaction => {
