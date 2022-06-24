@@ -1,3 +1,5 @@
+![cute](https://forthebadge.com/images/featured/featured-contains-cat-gifs.svg)
+
 # WasteLandBot
  Discord bot for WasteLand.
 ![0001](https://user-images.githubusercontent.com/76490476/165584096-9c8d4787-5ca1-4503-9533-cc67f3bd40e8.jpg)
