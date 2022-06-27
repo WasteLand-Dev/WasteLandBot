@@ -78,6 +78,7 @@ bot.on('ready', () => {
             if (err) console.error(color.red(err));
         }
     })();
+
     // ?Создаём ссылку-приглашение для бота
     async function createLink() {
     const link = bot.generateInvite({ scopes: ['bot'], permissions: ["ADMINISTRATOR"] });
