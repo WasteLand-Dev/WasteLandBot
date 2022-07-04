@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "Discord bot for WasteLand",
   "main": "index.js",
-  "author": "Spirit Of The Hawk",
+  "author": "SpiritOTHawk <support@wlorigin.cf>",
   "license": "ISC",
+  "homepage": "https://dev.wlorigin.cf/",
+  "bugs": {
+    "url": "https://github.com/WasteLand-Dev/WasteLandBot/issues"
+  },
   "scripts": {
     "start": "node index.js"
   },
@@ -13,7 +17,7 @@
     "@discordjs/builders": "^0.15.0",
     "@discordjs/rest": "^0.5.0",
     "cli-color": "^2.0.2",
-    "discord-api-types": "^0.35.0",
+    "discord-api-types": "^0.36.0",
     "discord.js": "^13.8.1",
     "dotenv": "^16.0.1",
     "slash-commands": "^1.5.0"
