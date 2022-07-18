@@ -6,7 +6,7 @@ module.exports = {
         .setName("userinfo")
         .setDescription("information about user"),
     async execute(interaction) {
-        interaction.reply({
+        await interaction.reply({
             content: `Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`,
             emphemeral: true
         });

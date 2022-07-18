@@ -3,17 +3,17 @@ var color = require("cli-color");
 const fs = require("fs");
 const path = require("path");
 const { REST } = require("@discordjs/rest");
-const { Routes } = require("discord-api-types/v9")
-const { Client, Intents, Collection } = require('discord.js');
+const { Routes, PermissionFlagsBits } = require("discord-api-types/v10")
+const { Client, IntentsBitField, Collection } = require('discord.js');
 const bot = new Client({
     intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES
+        new IntentsBitField(1 << 0),
+        new IntentsBitField(1 << 9)
     ],
     presence: {
-        status: 'inactive',
+        status: 'idle',
         activities: [{
-            type: 'STREAMING',
+            type: 1,
             name: 'support@wlorigin.cf',
             url: 'https://www.twitch.tv/spiritothawk'
         }],
@@ -53,7 +53,7 @@ bot.on('ready', () => {
     const CLIENT_ID = bot.user.id;
 
     const rest = new REST({
-        version: "9"
+        version: "10"
     }).setToken(token);
 
     (async () => {
@@ -81,14 +81,14 @@ bot.on('ready', () => {
 
     // ?Создаём ссылку-приглашение для бота
     async function createLink() {
-    const link = bot.generateInvite({ scopes: ['bot'], permissions: ["ADMINISTRATOR"] });
+    const link = bot.generateInvite({ scopes: ['bot'], permissions: [PermissionFlagsBits.Administrator] });
     console.log(color.yellow(link));
     };
     createLink();
 });
 
 bot.on("interactionCreate", async Interaction => {
-    if (!Interaction.isCommand()) return;
+    if (!Interaction.isChatInputCommand()) return;
 
     const command = bot.commands.get(Interaction.commandName);
 
