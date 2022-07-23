@@ -79,12 +79,15 @@ bot.on('ready', () => {
         }
     })();
 
-    // ?Создаём ссылку-приглашение для бота
-    async function createLink() {
-    const link = bot.generateInvite({ scopes: ['bot'], permissions: [PermissionFlagsBits.Administrator] });
-    console.log(color.yellow(link));
-    };
-    createLink();
+    //? Создаём ссылку-приглашение для бота
+    (async () => {
+        try {
+            const link = bot.generateInvite({ scopes: ['bot'], permissions: [PermissionFlagsBits.Administrator] });
+            console.log(color.yellow(link));
+        } catch (err) {
+            if (err) console.error(color.red(err));
+        }
+    })();
 });
 
 bot.on("interactionCreate", async Interaction => {

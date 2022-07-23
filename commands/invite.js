@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 var color = require("cli-color");
 
-// !путь до корневого каталога
 const link = "https://discord.com/api/oauth2/authorize?client_id=702055264324681779&scope=bot&permissions=8";
 
 module.exports = {
