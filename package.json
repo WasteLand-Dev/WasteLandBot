@@ -14,7 +14,7 @@
   },
   "type": "commonjs",
   "dependencies": {
-    "@discordjs/rest": "^1.6.0",
+    "@discordjs/rest": "^1.7.0",
     "cli-color": "^2.0.3",
     "discord-api-types": "^0.37.37",
     "discord.js": "^14.8.0",
