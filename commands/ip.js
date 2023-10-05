@@ -7,7 +7,7 @@ module.exports = {
         .setDescription("Can i connect?"),
     async execute(interaction) {
         interaction.reply({
-            content: "**IP**: radmin.wlorigin.cf / play.wlorigin.cf / craft.wlorigin.cf",
+            content: "**IP**: use ngrok ip / play.wlorigin.cf / craft.wlorigin.cf",
             emphemeral: true
         })
         console.log(color.cyanBright("Command ip executed"));
