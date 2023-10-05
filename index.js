@@ -67,7 +67,7 @@ bot.on('ready', () => {
                 await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
                     body: commands
                 });
-                console.log(color.yellowBright("Successfully registered commands locally on WasteLand."));
+                console.log(color.yellowBright("Successfully registered commands locally on WasteLand Origin."));
                 await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID2), {
                     body: commands
                 });
