@@ -7,7 +7,7 @@ module.exports = {
         .setDescription("Who create this bot?"),
     async execute(interaction) {
         interaction.reply({
-            content: "Author: SpiritOfTheHawk",
+            content: "Author: SpiritOTHawk",
             emphemeral: true
         });
         console.log(color.cyanBright("Command author executed"));
