@@ -14,7 +14,7 @@ const bot = new Client({
         status: 'idle',
         activities: [{
             type: 1,
-            name: 'support@wlorigin.cf',
+            name: 'spiritofthehawk@proton.me',
             url: 'https://www.twitch.tv/spiritothawk'
         }],
     },

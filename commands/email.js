@@ -7,7 +7,7 @@ module.exports = {
         .setDescription("Technical support"),
     async execute(interaction) {
         interaction.reply({
-            content: "support@wlorigin.cf",
+            content: "spiritofthehawk@proton.me",
             emphemeral: true
         });
         console.log(color.cyanBright("Email address sent"));
