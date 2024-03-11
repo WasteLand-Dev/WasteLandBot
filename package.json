@@ -17,7 +17,7 @@
     "@discordjs/builders": "^1.7.0",
     "@discordjs/rest": "^2.2.0",
     "cli-color": "^2.0.4",
-    "discord-api-types": "^0.37.71",
+    "discord-api-types": "^0.37.73",
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.5",
     "slash-commands": "^1.5.0"
